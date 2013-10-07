@@ -32,7 +32,6 @@ class DNATest < MiniTest::Unit::TestCase
   end
 
   def test_ignores_extra_length_on_original_strand_when_longer
-    skip
     assert_equal 5, DNA.new('GACTACGGACAGGGTAGGGAAT').hamming_distance('GACATCGCACACC')
   end
 

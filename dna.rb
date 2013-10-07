@@ -4,11 +4,13 @@ class DNA
     @dna = dna
   end
 
-  def hamming_distance(dna)
-    dna_chars = dna.chars.to_a
-    @dna.chars.each_with_index.inject(0) do |memo, nucleotide_and_index|
-      nucleotide, index = nucleotide_and_index
-      memo += 1 unless dna_chars[index] == nucleotide
+  def hamming_distance(comparison_dna)
+    dna_chars = @dna.chars.to_a
+    comparison_dna_chars = comparison_dna.chars.to_a
+    maximum_iterations = [comparison_dna.size,@dna.size].min
+
+    (0..maximum_iterations-1).inject(0) do |memo, index|
+      memo += 1 unless dna_chars[index] == comparison_dna_chars[index]
       memo
     end
   end
